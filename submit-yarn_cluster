@@ -1,0 +1,1 @@
+spark-submit --master yarn --deploy-mode cluster target/portal-spark-1.0-SNAPSHOT.jar
