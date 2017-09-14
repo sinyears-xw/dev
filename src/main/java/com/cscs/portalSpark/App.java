@@ -59,8 +59,6 @@ public class App {
     public static void main( String[] args ) {
     	System.setProperty("HADOOP_USER_NAME", "spark");  
         SparkConf conf = new SparkConf().setAppName("chinaDaasStat");
-        //conf.set("spark.yarn.jar", "hdfs://172.19.6.50:8020/system/spark-libs/spark-assembly-1.6.0-hadoop2.6.0.jar");
-        //conf.set("spark.yarn.dist.files", "spark/conf/yarn-site.xml");
 		JavaSparkContext sc = new JavaSparkContext(conf);
 		JavaRDD<String> lines = sc.textFile("hdfs://172.19.6.50:8022/portal/chinaDaasLog");
 		generateReport(lines.map(new map_date_url()).collect());
