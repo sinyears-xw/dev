@@ -5,16 +5,18 @@
 	172.19.6.50 NameNode.cscs.com
 	172.19.6.51 SNameNode.cscs.com
 
-2 设置本地环境变量  
+2 wget https://d3kbcqa49mib13.cloudfront.net/spark-1.6.0-bin-hadoop2.6.tgz, 解压到/usr/local/
+
+3 设置本地环境变量  
 	export SPARK_HOME=/usr/local/spark-1.6.0-bin-hadoop2.6
 	export SPARK_LOCAL_IP=127.0.0.1
 	export HADOOP_CONF_DIR=$SPARK_HOME/conf/hadoop.conf
 	export HADOOP_USER_NAME=spark
 
-3 将一些服务器上没有的jar包（例如spark-assembly-1.6.0-hadoop2.6.0.jar）传到hdfs的system/spark-libs/下
+4 将一些服务器上没有的jar包（例如spark-assembly-1.6.0-hadoop2.6.0.jar）传到hdfs的system/spark-libs/下
 	,然后修改$SPARK_HOME/conf/spark-defaults.conf,末尾添加
 	spark.yarn.jar hdfs://NameNode.cscs.com:8020/system/spark-libs/spark-assembly-1.6.0-hadoop2.6.0.jar
 
-4 mvn package
+5 mvn package
 
-5 ./submit-yarn_cluster
+6 ./submit-yarn_cluster
