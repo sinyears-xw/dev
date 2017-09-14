@@ -57,7 +57,6 @@ public class App {
 	}
 
     public static void main( String[] args ) {
-    	System.setProperty("HADOOP_USER_NAME", "spark");  
         SparkConf conf = new SparkConf().setAppName("chinaDaasStat");
 		JavaSparkContext sc = new JavaSparkContext(conf);
 		JavaRDD<String> lines = sc.textFile("hdfs://172.19.6.50:8022/portal/chinaDaasLog");
